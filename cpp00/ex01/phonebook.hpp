@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 16:50:36 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/03/21 22:24:02 by lalwafi          ###   ########.fr       */
+/*   Created: 2025/03/28 20:05:23 by lalwafi           #+#    #+#             */
+/*   Updated: 2025/03/28 20:57:36 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string.h>
-
-class Contact
-{
-	public:
-		std::string	firstname;
-		std::string	lastname;
-		std::string	nickname;
-		std::string	phonenumber;
-		std::string	darksecret;
-};
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
+# include "contact.hpp"
 
 class Phonebook
 {
 	private:
-		Contact contacts[8];
-		int contactcount;
-	
-	public:
-		PhoneBook() : contactcount(0) {}
+		Contact		contacts[8];
+		int			index;
+		bool		full;
 
-		void add_contact
+	public:
+		Phonebook();
+		~Phonebook();
+		void	add_it(void);
+		void	search_it(void);
 };
 
+
+
+#endif
