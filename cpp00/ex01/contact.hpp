@@ -15,6 +15,7 @@
 # include <iostream>
 # include <string.h>
 # include <cstdlib>
+# include <cctype>
 
 class	Contact
 {
