@@ -29,9 +29,10 @@ class	Contact
 	public:
 		Contact();
 		~Contact();
-		void new_contact(std::string first_name, std::string last_name, \
+		void	new_contact(std::string first_name, std::string last_name, \
 			std::string nickname, std::string phone_number, std::string darkest_secret);
-		void print_contact();
+		void	print_contact();
+		void	print_one_contact(int i);
 };
 
 #endif

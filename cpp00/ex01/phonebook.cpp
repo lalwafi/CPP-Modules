@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:44:50 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/03/31 21:18:08 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/04/01 02:37:16 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,15 @@ void	Phonebook::add_it(void)
 
 	if (this->full == true && continue_or_no() == false)
 		return ;
+	std::cout << "_____________________________________________" << std::endl;
 	while (1)
 	{
 		std::cout << "First name : ";
 		if (!getline(std::cin, input))
+		{
+			std::cout << std::endl << "exiting..." << std::endl;
 			exit(0);
+		}
 		if (input.empty() == true)
 			std::cout << "Please type something don't leave it empty :(" << std::endl;
 		else
@@ -70,7 +74,10 @@ void	Phonebook::add_it(void)
 	{
 		std::cout << "Last name : ";
 		if (!getline(std::cin, input))
+		{
+			std::cout << std::endl << "exiting..." << std::endl;
 			exit(0);
+		}
 		if (input.empty() == true)
 			std::cout << "Please type something don't leave it empty :(" << std::endl;
 		else
@@ -83,7 +90,10 @@ void	Phonebook::add_it(void)
 	{
 		std::cout << "Nickname : ";
 		if (!getline(std::cin, input))
+		{
+			std::cout << std::endl << "exiting..." << std::endl;
 			exit(0);
+		}
 		if (input.empty() == true)
 			std::cout << "Please type something don't leave it empty :(" << std::endl;
 		else
@@ -96,7 +106,10 @@ void	Phonebook::add_it(void)
 	{
 		std::cout << "Phone number : ";
 		if (!getline(std::cin, input))
+		{
+			std::cout << std::endl << "exiting..." << std::endl;
 			exit(0);
+		}
 		if (input.empty() == true)
 			std::cout << "Please type something don't leave it empty :(" << std::endl;
 		else if (only_numbers(input) == true)
@@ -111,18 +124,24 @@ void	Phonebook::add_it(void)
 	{
 		std::cout << "Darkest secret 🤫: ";
 		if (!getline(std::cin, input))
+		{
+			std::cout << std::endl << "exiting..." << std::endl;
 			exit(0);
+		}
 		if (input.empty() == true)
 			std::cout << "Please type something don't leave it empty :(" << std::endl;
 		else
 		{
-			last_name = input;
+			darkest_secret = input;
 			break;
 		}
 	}
+	std::cout << "_____________________________________________" << std::endl;
 	this->contacts[this->index % 8].new_contact(first_name, last_name, \
 		nickname, phone_number, darkest_secret);
 	this->index++;
+	if (this->index > 7)
+		this->full = true;
 }
 
 void	Phonebook::search_it(void)
@@ -132,7 +151,31 @@ void	Phonebook::search_it(void)
 		std::cout << "Phonebook is empty, type ADD to add a contact." << std::endl;
 		return ;
 	}
-	contacts[index].print_contact();
+	std::cout << "_____________________________________________" << std::endl;
+	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
+	std::cout << "=============================================" << std::endl;
+	for (int i = 0; i < this->index && i < 8; i++)
+	{
+		this->contacts[i % 8].print_one_contact(i % 8);
+	}
+	std::cout << "_____________________________________________" << std::endl << std::endl;
+	std::string	input;
+	while (1)
+	{
+		std::cout << "What contact would you like to display? Index : ";
+		if (!getline(std::cin, input))
+		{
+			std::cout << std::endl << "exiting..." << std::endl;
+			exit(0);
+		}
+		if (input.length() == 1 && input >= "1" && input <= "8" && (std::atoi(input.c_str()) - 1) < index)
+		{
+			this->contacts[std::atoi(input.c_str()) - 1].print_contact();
+			return ;
+		}
+		else
+			std::cout << "Please type the index you wish to search from the list above (eg: '1')" << std::endl;
+	}
 }
 
 int main(void)
@@ -142,7 +185,10 @@ int main(void)
 
     while (1)
     {
-        std::cout << "Use commands 'ADD' , 'SEARCH' , 'EXIT'" << std::endl;
+		std::cout << " ______________________________________" << std::endl;
+        std::cout << "| commands | 'ADD' | 'SEARCH' | 'EXIT' |" << std::endl;
+		std::cout << " ______________________________________" << std::endl;
+		std::cout << "> ";
         if (!getline(std::cin, input))
             break;
         if (input.compare("ADD") == 0)
@@ -152,7 +198,8 @@ int main(void)
         else if (input.compare("EXIT") == 0)
             break ;
         else
-            std::cout << "Invalid command..." << std::endl;
+            std::cout << "❗❗Invalid command..." << std::endl;
     }
+	std::cout << std::endl << "exiting..." << std::endl;
     return (0);
 }
