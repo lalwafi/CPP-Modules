@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 19:44:50 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/04/01 02:37:16 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/04/01 20:14:32 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,14 +151,14 @@ void	Phonebook::search_it(void)
 		std::cout << "Phonebook is empty, type ADD to add a contact." << std::endl;
 		return ;
 	}
-	std::cout << "_____________________________________________" << std::endl;
+	std::cout << " ___________________________________________ " << std::endl;
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	std::cout << "=============================================" << std::endl;
 	for (int i = 0; i < this->index && i < 8; i++)
 	{
 		this->contacts[i % 8].print_one_contact(i % 8);
 	}
-	std::cout << "_____________________________________________" << std::endl << std::endl;
+	std::cout << " ___________________________________________ " << std::endl << std::endl;
 	std::string	input;
 	while (1)
 	{
@@ -188,7 +188,7 @@ int main(void)
 		std::cout << " ______________________________________" << std::endl;
         std::cout << "| commands | 'ADD' | 'SEARCH' | 'EXIT' |" << std::endl;
 		std::cout << " ______________________________________" << std::endl;
-		std::cout << "> ";
+		std::cout  << std::endl << "> ";
         if (!getline(std::cin, input))
             break;
         if (input.compare("ADD") == 0)
