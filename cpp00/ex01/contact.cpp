@@ -6,38 +6,87 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 02:48:31 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/04/01 02:50:22 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/04/01 20:09:38 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
 
-void Contact::print_one_contact(int i)
+Contact::Contact()
+{}
+
+Contact::~Contact()
+{}
+
+void	Contact::new_contact(std::string first, std::string last, \
+	std::string nick, std::string phone, std::string darkest)
 {
-    std::cout << "|         " << (i + 1) << "|";
-    std::cout << "|";
-    for (int i = 0; i < 10; i++)
+	this->first_name = first;
+	this->last_name = last;
+	this->nickname = nick;
+	this->phone_number = phone;
+	this->darkest_secret = darkest;
+}
+
+void	Contact::print_contact()
+{
+	std::cout << "_____________________________________________" << std::endl;
+	std::cout << "First name     : ";
+	std::cout << first_name << std::endl;
+	std::cout << "Last name      : ";
+	std::cout << last_name << std::endl;
+	std::cout << "Nickname       : ";
+	std::cout << nickname << std::endl;
+	std::cout << "Phone number   : ";
+	std::cout << phone_number << std::endl;
+	std::cout << "Darkest secret : ";
+	std::cout << darkest_secret << std::endl;
+	std::cout << "_____________________________________________" << std::endl;
+}
+
+void Contact::print_one_contact(int index)
+{
+    size_t  j = 0;
+    std::cout << "|         " << (index + 1) << "|";
+    for (size_t i = 0; i < 10; i++)
     {
-        if (static_cast<int>(this->first_name.length()) > i)
-            std::cout << this->first_name[i];
-        else
+        if (this->first_name.length() < 10 && (10 - this->first_name.length()) > i)
             std::cout << " ";
+        else 
+           std::cout << this->first_name[j++];
+        if (this->first_name.length() > 10 && i == 8)
+        {
+            std::cout << ".";
+            i++;
+        }
     }
     std::cout << "|";
-    for (int i = 0; i < 10; i++)
+    j = 0;
+    for (size_t i = 0; i < 10; i++)
     {
-        if (static_cast<int>(this->last_name.length()) > i)
-            std::cout << this->last_name[i];
-        else
+        if (this->last_name.length() < 10 && (10 - this->last_name.length()) > i)
             std::cout << " ";
+        else 
+           std::cout << this->last_name[j++];
+        if (this->last_name.length() > 10 && i == 8)
+        {
+            std::cout << ".";
+            i++;
+        }
     }
     std::cout << "|";
-    for (int i = 0; i < 10; i++)
+    j = 0;
+    for (size_t i = 0; i < 10; i++)
     {
-        if (static_cast<int>(this->nickname.length()) > i)
-            std::cout << this->nickname[i];
-        else
+        if (this->nickname.length() < 10 && (10 - this->nickname.length()) > i)
             std::cout << " ";
+        else 
+           std::cout << this->nickname[j++];
+        if (this->nickname.length() > 10 && i == 8)
+        {
+            std::cout << ".";
+            i++;
+        }
     }
     std::cout << "|" << std::endl;
 }
