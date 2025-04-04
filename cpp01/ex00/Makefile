@@ -1,8 +1,8 @@
-NAME    = phonebook
+NAME    = Zombie
 CXX      = c++
 CXXFLAGS  = -Wall -Werror -Wextra -std=c++98
 
-SRCS    = phonebook.cpp contact.cpp
+SRCS    = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 		
 OBJ     = $(SRCS:.cpp=.o)
 
