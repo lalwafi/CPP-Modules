@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 20:23:20 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/04/04 20:13:17 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/05/26 17:41:49 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class Zombie
 		std::string name;
 	public:
 		Zombie(std::string new_name);
+		Zombie();
 		~Zombie();
+		void	set_Name(std::string name);
 		void	announce(void);
 };
 
