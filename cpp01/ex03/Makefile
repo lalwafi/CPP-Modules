@@ -1,8 +1,8 @@
-NAME    = horde
+NAME    = hi_this_is_brain
 CXX      = c++
 CXXFLAGS  = -Wall -Werror -Wextra -std=c++98
 
-SRCS    = Zombie.cpp main.cpp zombieHorde.cpp
+SRCS    = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 		
 OBJ     = $(SRCS:.cpp=.o)
 
