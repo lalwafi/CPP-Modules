@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 23:31:46 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/05/27 02:23:16 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/06/12 18:23:16 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ Weapon::Weapon(){}
 
 Weapon::Weapon(std::string weapon)
 {
-	this->type = weapon;
+	this->_type = weapon;
 }
 
 Weapon::~Weapon(){}
 
 std::string	&Weapon::getType()
 {
-	return (this->type);
+	return (this->_type);
 }
 void	Weapon::setType(std::string type)
 {
-	this->type = type;
+	this->_type = type;
 }

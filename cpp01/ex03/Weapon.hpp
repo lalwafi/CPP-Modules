@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 18:16:46 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/05/27 02:22:48 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/06/12 18:23:21 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Weapon
 {
 	private:
-		std::string type;
+		std::string _type;
 	public:
 		Weapon();
 		Weapon(std::string weapon);

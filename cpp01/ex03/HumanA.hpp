@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 23:36:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/05/27 02:21:55 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:58:10 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 class HumanA
 {
 	private:
-		std::string name;
-		Weapon weapon;
+		std::string _name;
+		Weapon &_weapon;
 	public:
 		HumanA(std::string name, Weapon& weapon);
 		~HumanA();
