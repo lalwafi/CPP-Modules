@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 23:52:45 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/06/21 01:22:09 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/06/23 04:00:37 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Fixed
 {
 	private:
-		int					_number;
+		int					_raw;
 		static const int	_bits = 8;
 	public:
 		Fixed();
