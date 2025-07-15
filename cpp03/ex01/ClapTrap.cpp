@@ -6,14 +6,14 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 23:48:10 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/15 05:33:37 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/07/15 08:34:16 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap Default constructor called" << std::endl;
 	this->_name = "[REDACTED]";
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -21,7 +21,7 @@ ClapTrap::ClapTrap() {
 }
 
 ClapTrap::ClapTrap(const std::string name) {
-	std::cout << "Named constructor called" << std::endl;
+	std::cout << "ClapTrap Named constructor called" << std::endl;
 	this->_name = name;
 	this->_hitPoints = 10;
 	this->_energyPoints = 10;
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(const std::string name) {
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clap) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
 	this->_name = clap._name;
 	this->_hitPoints = clap._hitPoints;
 	this->_energyPoints = clap._energyPoints;
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap(const ClapTrap &clap) {
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy) {
@@ -83,11 +83,11 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << "ClapTrap " << this->_name << " has no energy left to heal!" << std::endl;
 	else if (amount > 0)
 	{
-		if (amount > 10)
-			amount = 10;
+		if (amount > 100)
+			amount = 100;
 		this->_hitPoints += amount;
-		if (this->_hitPoints > 10)
-			this->_hitPoints = 10;
+		if (this->_hitPoints > 100)
+			this->_hitPoints = 100;
 		std::cout << "ClapTrap " << this->_name << " has healed by " << amount << " points!" << std::endl;
 	}
 	else
