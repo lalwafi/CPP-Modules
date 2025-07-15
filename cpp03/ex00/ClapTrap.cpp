@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 23:48:10 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/15 05:33:37 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/07/15 08:48:49 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 	else if (amount > 0  && this->_hitPoints == 0)
 		std::cout << "Beating a dead body is lowkey sad" << std::endl;
 	else 
-		std::cout << "attack has no effect! (tip: attack needs to be greater than 0)" << std::endl;
+		std::cout << "Enemy attack has no effect! (tip: attack needs to be greater than 0)" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
