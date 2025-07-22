@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 19:56:29 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/21 23:50:04 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/07/22 04:23:17 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,5 @@ int main()
 	delete (k);
 	return 0;
 }
+
+// test other constructors (copy, name)

@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 19:30:43 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/22 01:22:58 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/07/22 04:27:58 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal
 		std::string		_type;
 	public:
 		Animal();
-		Animal(const std::string type);
+		Animal(const std::string name);
 		Animal(const Animal &copy);
 		virtual ~Animal();
 

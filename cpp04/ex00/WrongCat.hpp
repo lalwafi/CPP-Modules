@@ -19,7 +19,7 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat();
-		WrongCat(const std::string type);
+		WrongCat(const std::string name);
 		WrongCat(const WrongCat &copy);
 		~WrongCat();
 

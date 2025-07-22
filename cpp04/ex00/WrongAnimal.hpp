@@ -24,7 +24,7 @@ class WrongAnimal
 		std::string		_type;
 	public:
 		WrongAnimal();
-		WrongAnimal(const std::string type);
+		WrongAnimal(const std::string name);
 		WrongAnimal(const WrongAnimal &copy);
 		~WrongAnimal();
 

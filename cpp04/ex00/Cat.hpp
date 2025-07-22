@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:13:02 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/22 01:32:26 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/07/22 04:28:46 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Cat : public Animal
 {
 	public:
 		Cat();
-		Cat(const std::string type);
+		Cat(const std::string name);
 		Cat(const Cat &copy);
 		~Cat();
 
