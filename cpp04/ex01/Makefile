@@ -2,7 +2,7 @@ NAME		= world_on_fire
 CXX			= c++
 CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 
-SRCS		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 		
 OBJ			= $(SRCS:.cpp=.o)
 

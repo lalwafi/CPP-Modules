@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 20:13:02 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/22 04:28:25 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/07/23 03:56:24 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ class Dog : public Animal
 		Dog(const Dog &copy);
 		~Dog();
 
+		Dog &operator=(const Dog &copy);
 		void	makeSound() const;
+		Brain	*getBrain();
 };
 
 #endif
