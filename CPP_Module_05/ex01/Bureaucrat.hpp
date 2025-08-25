@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:26:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/08 23:23:16 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/25 20:40:06 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <cctype>
 # include <cmath>
 
+# include "Form.hpp"
+
+class Form;
 class Bureaucrat
 {
 	private:
@@ -45,6 +48,8 @@ class Bureaucrat
 			public:
 				const char *what() const throw();
 		};
+
+		void	signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &b);

@@ -6,62 +6,48 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:48:36 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/08 19:17:52 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/25 20:56:45 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void) {
 	std::cout << "----------------- Constructors -----------------" << std::endl;
-	Bureaucrat a("Mr. Fluffles", 4);
-	Bureaucrat b("b", 150);
-	Bureaucrat c("c", 1);
+	Bureaucrat	a("Mr. Cat", 4);
+	Bureaucrat	b("Mr. Dog", 50);
+	Form		form("Form-105", 5, 5);
 	
-	std::cout << "\n-------------- Too high too low --------------" << std::endl;
+	std::cout << "----------------- Form tests -----------------" << std::endl;
+	std::cout << form << std::endl;
 	try
 	{
-		Bureaucrat low("low", 0);
+		a.signForm(form);
 	}
-	catch (std::exception &error)
+	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << error.what() << std::endl;
+		std::cerr << e.what() << "\n";
 	}
+	
+	std::cout << form << std::endl;
 	try
 	{
-		Bureaucrat high("high", 151);
+		b.signForm(form);
 	}
-	catch (std::exception &error)
+	catch (std::exception &e)
 	{
-		std::cerr << "Exception: " << error.what() << std::endl;
+		std::cerr << e.what() << "\n";
+	}
+	Form	form2("Form-150", 5, 5);
+	try
+	{
+		b.signForm(form2);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
 	}
 	
-	std::cout << "\n--------------- announcements ---------------" << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << c << std::endl;
-	
-	std::cout << "\n---------------- increments ----------------" << std::endl;
-	a.incrementGrade();
-	std::cout << a << std::endl;
-	a.decrementGrade();
-	std::cout << a << std::endl;
-	
-	try {
-		b.decrementGrade();
-	}
-	catch (std::exception &e){
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	std::cout << b << std::endl;
-
-	try {
-		c.incrementGrade();
-	}
-	catch (std::exception &e){
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	std::cout << c << std::endl;
-
 	std::cout << "\n----------------- Destructors -----------------" << std::endl;
 }

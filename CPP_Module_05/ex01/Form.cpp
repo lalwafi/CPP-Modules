@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 00:43:08 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/09 01:42:50 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/25 20:49:28 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Form::Form(const std::string name, const int gradetosign, const int gradetoexec)
 
 Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), \
 	_gradeToSign(copy._gradeToSign), _gradeToExec(copy._gradeToExec) {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	std::cout << "Form copy constructor called" << std::endl;
 } 
 
 Form::~Form() {
@@ -46,21 +46,26 @@ bool	Form::getSigned() const {
 	return (this->_signed);
 }
 
-const int	Form::getGradeToSign() const {
+int	Form::getGradeToSign() const {
 	return (this->_gradeToSign);
 }
 
-const int	Form::getGradeToExec() const {
+int	Form::getGradeToExec() const {
 	return (this->_gradeToExec);
 }
 
 void	Form::signIt(const Bureaucrat &b) {
-	if (this->_signed == true)
-	{
-		std::cout << "Form is already signed" << std::endl;
-		return ;
-	}
-	if (b.getGrade() <= this->_gradeToSign)
+	if (b.getGrade() > this->_gradeToSign)
+		throw GradeTooLowException();
+	this->_signed = true;
+}
+
+const char	*Form::GradeTooHighException::what() const throw() {
+	return ("Grade is too high!");
+}
+
+const char	*Form::GradeTooLowException::what() const throw() {
+	return ("Grade is too low!");
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &f) {

@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:24:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/09 01:41:17 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/25 20:39:48 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form
 {
 	private:
@@ -35,8 +36,8 @@ class Form
 		
 		const std::string	getName() const;
 		bool				getSigned() const;
-		const int			getGradeToSign() const;
-		const int			getGradeToExec() const;
+		int					getGradeToSign() const;
+		int					getGradeToExec() const;
 		void				signIt(const Bureaucrat &b);
 		
 		class GradeTooHighException : public std::exception
