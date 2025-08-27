@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 01:59:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/26 02:17:10 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:58:12 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(const PresidentialPardonForm &copy);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &b);
 		~PresidentialPardonForm();
 
 		const std::string	getTarget() const;

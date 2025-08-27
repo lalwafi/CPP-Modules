@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:24:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/25 20:39:48 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:56:01 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Form
 		Form();
 		Form(const std::string name, const int gradetosign, const int gradetoexec);
 		Form(const Form &copy);
+		Form &operator=(const Form &b);
 		~Form();
 		
 		const std::string	getName() const;

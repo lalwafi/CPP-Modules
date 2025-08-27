@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:26:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/26 01:31:42 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:57:06 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Bureaucrat
 		Bureaucrat();
 		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat &copy);
+		Bureaucrat &operator=(const Bureaucrat &b);
 		~Bureaucrat();
 		
 		const std::string	getName() const;

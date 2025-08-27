@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 22:49:33 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/26 00:48:19 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:59:04 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &b);
 		~ShrubberyCreationForm();
 
 		const std::string	getTarget() const;

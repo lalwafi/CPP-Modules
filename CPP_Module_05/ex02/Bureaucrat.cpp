@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:30:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/26 02:09:28 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:56:54 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {
 	std::cout << "Bureaucrat copy constructor called" << std::endl;
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b) {
+	std::cout << "Bureaucrat = operator called" << std::endl;
+	this->_grade = b._grade;
+	return (*this);
 }
 
 Bureaucrat::~Bureaucrat() {

@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 00:43:08 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/25 20:49:28 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:56:28 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), \
 	_gradeToSign(copy._gradeToSign), _gradeToExec(copy._gradeToExec) {
 	std::cout << "Form copy constructor called" << std::endl;
 } 
+
+Form &Form::operator=(const Form &b) {
+	std::cout << "Form = operator called" << std::endl;
+	this->_signed = b._signed;
+	return (*this);
+}
 
 Form::~Form() {
 	std::cout << "Form deconstructor called" << std::endl;

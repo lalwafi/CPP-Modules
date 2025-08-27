@@ -32,6 +32,7 @@ class AForm
 		AForm();
 		AForm(const std::string name, const int gradetosign, const int gradetoexec);
 		AForm(const AForm &copy);
+		AForm &operator=(const AForm &b);
 		~AForm();
 		
 		const std::string	getName() const;

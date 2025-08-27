@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 00:00:01 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/26 02:18:40 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:58:33 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ AForm("Presidential-Pardon-Form", 145, 137) , _target(target) {
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : 
 AForm(copy) , _target(copy.getTarget()) {
 	std::cout << "PresidentialPardonForm copy constructer called" << std::endl;
+}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &b) {
+	std::cout << "PresidentialPardonForm = operator called" << std::endl;
+	this->_target = b._target;
+	return (*this);
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {

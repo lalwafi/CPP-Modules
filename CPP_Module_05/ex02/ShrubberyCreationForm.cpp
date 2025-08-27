@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 00:00:01 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/26 01:56:58 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/08/27 18:59:27 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ AForm("Shrubbery-Creation-Form", 145, 137) , _target(target) {
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : 
 AForm(copy) , _target(copy.getTarget()) {
 	std::cout << "ShrubberyCreationForm copy constructer called" << std::endl;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &b) {
+	std::cout << "ShrubberyCreationForm = operator called" << std::endl;
+	this->_target = b._target;
+	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {

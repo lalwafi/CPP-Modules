@@ -34,6 +34,12 @@ AForm::AForm(const AForm &copy) : _name(copy._name), _signed(copy._signed), \
 	std::cout << "AForm copy constructor called" << std::endl;
 } 
 
+AForm &AForm::operator=(const AForm &b) {
+	std::cout << "AForm = operator called" << std::endl;
+	this->_signed = b._signed;
+	return (*this);
+}
+
 AForm::~AForm() {
 	std::cout << "AForm deconstructor called" << std::endl;
 }
