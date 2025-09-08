@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 12:43:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/09/08 02:54:28 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/09/08 14:56:04 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ ScalarConverter::~ScalarConverter() {
 }
 
 void	ScalarConverter::convert(const std::string &literal) {
-	 // 1. Handle special cases (nan, inf, etc.)
-    //    -> print directly and return
-
 	if (literal == "nan" || literal == "nanf")
 	{
 		std::cout << "Char: impossible\nInt: impossible\nFloat: nanf\nDouble: nan" << std::endl;
@@ -51,18 +48,14 @@ void	ScalarConverter::convert(const std::string &literal) {
 		return ;
 	}
 	
-    // 2. If input is 1 char and not a digit
-    //    -> treat as char literal
-    //    -> print char, int, float, double
-    //    -> return
-
 	if (literal.length() == 1 && !isdigit(literal[0]))
 	{
+		std::cout << "------- char detected ----------" << std::endl;
 		char c = literal[0];
 		std::cout << "Char: " << c << "\n";
 		std::cout << "Int: " << static_cast<int>(c) << "\n";
-		std::cout << "Float: " << static_cast<float>(c) << ".0f\n"; 
-		std::cout << "Double: " << static_cast<double>(c) << ".0\n"; 
+		std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f\n"; 
+		std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << "\n"; 
 		return ;
 	}
 	
@@ -70,44 +63,47 @@ void	ScalarConverter::convert(const std::string &literal) {
 	long i = std::strtol(literal.c_str(), &end, 10);
 	if (*end == '\0' && i >= INT_MIN && i <= INT_MAX)
 	{
+		std::cout << "------- int detected ----------" << std::endl;
 		if (i >= 32 && i <= 126)
 			std::cout << "Char: " << static_cast<char>(i) << "\n";
-		else
+		else if ((i >= 0 && i < 32) || i == 127)
 			std::cout << "Char: Non Displayable\n";
+		else
+			std::cout << "Char: Impossible\n";
 		std::cout << "Int: " << i << "\n";
-		std::cout << "Float: " << static_cast<float>(i) << ".0f\n"; 
-		std::cout << "Double: " << static_cast<double>(i) << ".0\n";
+		std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f\n"; 
+		std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << "\n";
 		return ;
 	}
 
 	double j = std::strtod(literal.c_str(), &end);
 	if (*end == 'f' && *(end + 1) == '\0')
 	{
+		std::cout << "------- float detected ----------" << std::endl;
 		float f = static_cast<float>(j);
 		if (f >= 32 && f <= 126)
 			std::cout << "Char: " << static_cast<char>(f) << "\n";
-		else
+		else if ((f >= 0 && f < 32) || f == 127)
 			std::cout << "Char: Non Displayable\n";
-		
-		 
+		else
+			std::cout << "Char: Impossible\n";
+		std::cout << "Int: " << std::fixed << std::setprecision(1) << static_cast<int>(f) << "\n";
+		std::cout << "Float: " << std::fixed << std::setprecision(1) << f << "f\n";
+		std::cout << "Double: " << static_cast<double>(f) << "\n";
 	}
 	
-    // 3. Else: parse input as double
-    //    -> use strtod to convert string -> double
-    //    -> check if conversion failed
-
-    // 4. Print as char
-    //    -> if not displayable, say "Non displayable"
-    //    -> if out of range, say "impossible"
-
-    // 5. Print as int
-    //    -> if out of int range, say "impossible"
-
-    // 6. Print as float
-    //    -> always print number with "f" at end
-
-    // 7. Print as double
-    //    -> just print number
-
-	
+	double d = std::strtod(literal.c_str(), &end);
+	if (*end == '\0') {
+		std::cout << "------- double detected ----------" << std::endl;
+		if (d >= 32 && d <= 126)
+			std::cout << "Char: " << static_cast<char>(d) << "\n";
+		else if ((d >= 0 && d < 32) || d == 127)
+			std::cout << "Char: Non displayable\n";
+		else
+			std::cout << "Char: impossible\n";
+		std::cout << "Int: " << static_cast<int>(d) << "\n";
+		std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f\n";
+		std::cout << "Double: " << std::fixed << std::setprecision(1) << d << "\n";
+		return;
+	}
 }

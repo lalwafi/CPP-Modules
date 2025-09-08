@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:38:17 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/09/07 16:12:38 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/09/08 14:51:25 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <climits>
 # include <cctype>
 # include <cmath>
-
+# include <iomanip>
 
 class ScalarConverter
 {
