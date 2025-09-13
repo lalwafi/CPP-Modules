@@ -1,8 +1,8 @@
-NAME		= Reinterpret
+NAME		= Dynamic
 CXX			= c++
 CXXFLAGS	= -Wall -Werror -Wextra -std=c++98
 
-SRCS		= main.cpp Serializer.cpp
+SRCS		= main.cpp Base.cpp
 
 OBJ			= $(SRCS:.cpp=.o)
 
