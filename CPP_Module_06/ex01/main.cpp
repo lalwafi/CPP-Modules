@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 22:56:47 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/09/10 23:48:25 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/01 19:36:29 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int main(void) {
 	std::cout << "		Data integer : " << deserialized->i << std::endl;
 	std::cout << "		Data string  : " << deserialized->string << std::endl;
 	std::cout << "Data pointer        : " << &data << std::endl;
-	std::cout << "Deserialized pointer: " << &deserialized << std::endl;
+	std::cout << "Deserialized pointer: " << deserialized << std::endl;
 }

@@ -6,19 +6,19 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:38:17 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/09/08 14:51:25 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/01 18:42:37 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <climits>
 # include <cctype>
-# include <cmath>
 # include <iomanip>
+# include <cfloat>
 
 class ScalarConverter
 {

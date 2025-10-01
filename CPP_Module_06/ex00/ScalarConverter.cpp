@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 12:43:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/09/08 14:56:04 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/01 19:30:47 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ ScalarConverter::ScalarConverter() {
 
 ScalarConverter::ScalarConverter(const ScalarConverter &copy) {
 	std::cout << "ScalarConverter copy constructor called" << std::endl;
-	*this = copy;
+	(void)copy;
 }
 
 ScalarConverter &ScalarConverter::operator=(const ScalarConverter &s) {
 	std::cout << "ScalarConverter = operator called" << std::endl;
-	*this = s;
+	(void)s;
 	return (*this);
 }
 
@@ -71,7 +71,10 @@ void	ScalarConverter::convert(const std::string &literal) {
 		else
 			std::cout << "Char: Impossible\n";
 		std::cout << "Int: " << i << "\n";
-		std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f\n"; 
+		if (i > FLT_MAX || i < -FLT_MAX)
+			std::cout << "Float: impossible" << std::endl;
+		else
+			std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
 		std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << "\n";
 		return ;
 	}
@@ -87,8 +90,14 @@ void	ScalarConverter::convert(const std::string &literal) {
 			std::cout << "Char: Non Displayable\n";
 		else
 			std::cout << "Char: Impossible\n";
-		std::cout << "Int: " << std::fixed << std::setprecision(1) << static_cast<int>(f) << "\n";
-		std::cout << "Float: " << std::fixed << std::setprecision(1) << f << "f\n";
+		if (f > INT_MAX || f < INT_MIN)
+			std::cout << "Int: Impossible\n";
+		else
+			std::cout << "Int: " << std::fixed << static_cast<int>(f) << "\n";
+		if (f > FLT_MAX || f < FLT_MIN || static_cast<float>(f) != j)
+			std::cout << "Float: impossible\n";
+		else
+			std::cout << "Float: " << std::fixed << std::setprecision(1) << f << "f\n";
 		std::cout << "Double: " << static_cast<double>(f) << "\n";
 	}
 	
@@ -100,9 +109,15 @@ void	ScalarConverter::convert(const std::string &literal) {
 		else if ((d >= 0 && d < 32) || d == 127)
 			std::cout << "Char: Non displayable\n";
 		else
-			std::cout << "Char: impossible\n";
-		std::cout << "Int: " << static_cast<int>(d) << "\n";
-		std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f\n";
+			std::cout << "Char: Impossible\n";
+		if (d > INT_MAX || d < INT_MIN)
+			std::cout << "Int: Impossible\n";
+		else
+			std::cout << "Int: " << std::fixed << std::setprecision(1) << static_cast<int>(d) << "\n";
+		if (i > FLT_MAX || i < -FLT_MAX)
+			std::cout << "Float: impossible" << std::endl;
+		else
+			std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
 		std::cout << "Double: " << std::fixed << std::setprecision(1) << d << "\n";
 		return;
 	}

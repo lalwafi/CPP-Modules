@@ -6,13 +6,13 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 00:43:08 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/27 18:56:28 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/01 20:16:03 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : _name("[[REDACTED]"), _signed(false), _gradeToSign(150), _gradeToExec(150) {
+Form::Form() : _name("[REDACTED]"), _signed(false), _gradeToSign(150), _gradeToExec(150) {
 	std::cout << "Form default constructor called" << std::endl;
 }
 

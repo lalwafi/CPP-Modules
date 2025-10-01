@@ -6,19 +6,19 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 00:00:01 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/27 18:58:33 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/01 20:46:28 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : 
-AForm("Presidential-Pardon-Form", 145, 137) , _target("[REDACTED]") {
+AForm("Presidential-Pardon-Form", 25, 5) , _target("[REDACTED]") {
 	std::cout << "PresidentialPardonForm default constructer called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : 
-AForm("Presidential-Pardon-Form", 145, 137) , _target(target) {
+AForm("Presidential-Pardon-Form", 25, 5) , _target(target) {
 	std::cout << "PresidentialPardonForm named constructer called" << std::endl;
 }
 

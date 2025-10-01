@@ -15,6 +15,7 @@
 # include <iostream>
 # include <cstdlib>
 # include <string>
+# include <cstdint>
 
 struct Data
 {

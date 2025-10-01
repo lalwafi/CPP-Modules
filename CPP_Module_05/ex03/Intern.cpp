@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 16:35:56 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/31 19:40:49 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/01 21:09:57 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,9 @@ AForm	*Intern::makeForm(std::string form, std::string target) {
 			return ((this->*makeforms[i])(target));
 		}
 	}
-	std::cerr << "Could not create form for '" << form << "'...\n";
 	throw UnknownFormException();
 }
 
 const char	*Intern::UnknownFormException::what() const throw() {
-	return (NULL);
+	return ("Intern could not create form.\n");
 }
