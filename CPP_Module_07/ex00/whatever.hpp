@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 21:17:33 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/10/02 00:23:52 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/07 23:21:01 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 template <typename T>
 	void swap(T &a, T &b)
 	{
-		T temp;
-		temp = a;
+		T temp = a;
 		a = b;
 		b = temp;
 	}
