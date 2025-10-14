@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:48:36 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/10/01 21:11:12 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/13 20:24:52 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void) {
 	std::cout << "\n-------------Shrubbery Intern Test -------------\n" << std::endl;
 	try
 	{
-		Intern	bob;
+		const Intern	bob;
 		AForm	*shrub = bob.makeForm("shrubbery form", "outdoor");
 		std::cout << *shrub;
 		try

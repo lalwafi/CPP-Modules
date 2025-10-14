@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 00:43:08 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/10/01 20:16:03 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/13 19:26:36 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,17 @@ int	Form::getGradeToExec() const {
 	return (this->_gradeToExec);
 }
 
-void	Form::signIt(const Bureaucrat &b) {
+void	Form::beSigned(const Bureaucrat &b) {
 	if (b.getGrade() > this->_gradeToSign)
 		throw GradeTooLowException();
+	if (this->_signed == false)
+		throw UnsignedException();
 	this->_signed = true;
 }
 
+const char	*Form::UnsignedException::what() const throw() {
+	return ("Form is not signed!");
+}
 const char	*Form::GradeTooHighException::what() const throw() {
 	return ("Grade is too high!");
 }

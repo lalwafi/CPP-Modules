@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:30:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/27 18:56:54 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/13 19:22:44 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	Bureaucrat::signForm(AForm &form) {
 	}
 	try
 	{
-		form.signIt(*this);
+		form.beSigned(*this);
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
 	}
 	catch(const std::exception& e)

@@ -1,0 +1,7 @@
+fix the unsigned form in besigned in ex02 and 03
+i already have form not signed exeption, fuckn fix that shit make all of them have it (execute form has it sign for doesnt)
+cpp05ex02/3 srand put in main cuz ur seeding the first value every time retard
+
+cpp05 ex03 intern.cpp; one implementation of make form
+	std::pair<std::string, AForm *(Intern::*)(const std::string)> LUT[2] = { std::make_pair("shrubbery form", Intern::createShrub) , {"robotomy request", Intern::createRobot}};
+

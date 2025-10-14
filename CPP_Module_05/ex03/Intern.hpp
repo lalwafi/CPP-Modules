@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 01:59:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/31 19:34:23 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/13 20:13:37 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ class Intern
 		Intern &operator=(const Intern &b);
 		~Intern();
 
-		AForm	*createShrub(std::string const target);
-		AForm	*createRobot(std::string const target);
-		AForm	*createPresident(std::string const target);
-		AForm	*makeForm(std::string form, std::string target);
+		AForm	*createShrub(std::string const target) const;
+		AForm	*createRobot(std::string const target) const;
+		AForm	*createPresident(std::string const target) const;
+		AForm	*makeForm(std::string form, std::string target) const;
 
 		class UnknownFormException : public std::exception
 		{

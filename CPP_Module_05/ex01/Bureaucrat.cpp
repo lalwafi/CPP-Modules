@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 21:30:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/27 18:54:23 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/13 19:26:48 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,9 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &b) {
 }
 
 void	Bureaucrat::signForm(Form &form) {
-	if (form.getSigned() == true)
-	{
-		std::cout << "Form is already signed" << std::endl;
-		return ;
-	}
 	try
 	{
-		form.signIt(*this);
+		form.beSigned(*this);
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
 	}
 	catch(const std::exception& e)
