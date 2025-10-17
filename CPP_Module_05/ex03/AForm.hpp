@@ -13,7 +13,7 @@
 #ifndef AFORM_HPP
 # define AFORM_HPP
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <cctype>
 # include <cmath>
@@ -59,6 +59,12 @@ class AForm
 				const char *what() const throw();
 		};
 		
+		class FormAlreadySignedException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 

@@ -6,14 +6,14 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 18:16:46 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/06/12 18:23:21 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/17 04:02:27 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <cctype>
 

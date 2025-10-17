@@ -12,7 +12,7 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("[[REDACTED]"), _signed(false), _gradeToSign(150), _gradeToExec(150) {
+AForm::AForm() : _name("[REDACTED]"), _signed(false), _gradeToSign(150), _gradeToExec(150) {
 	std::cout << "AForm default constructor called" << std::endl;
 }
 
@@ -59,6 +59,8 @@ int	AForm::getGradeToExec() const {
 }
 
 void	AForm::beSigned(const Bureaucrat &b) {
+	if (this->_signed == true)
+		throw FormAlreadySignedException();
 	if (b.getGrade() > this->_gradeToSign)
 		throw GradeTooLowException();
 	this->_signed = true;
@@ -74,6 +76,10 @@ const char	*AForm::GradeTooLowException::what() const throw() {
 
 const char	*AForm::FormNotSignedException::what() const throw() {
 	return ("Form is not signed!");
+}
+
+const char	*AForm::FormAlreadySignedException::what() const throw() {
+	return ("Form is already signed!");
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &f) {

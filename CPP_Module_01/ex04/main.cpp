@@ -6,12 +6,12 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 18:36:42 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/06/13 04:23:25 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/17 04:02:27 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <fstream>
 

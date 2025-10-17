@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:48:36 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/08/27 18:54:47 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/17 04:00:03 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int main(void) {
 	std::cout << "----------------- Constructors -----------------" << std::endl;
 	Bureaucrat	a("Mr. Cat", 4);
 	Bureaucrat	b("Mr. Dog", 50);
-	Form		form("Form-105", 5, 5);
+	Form		form("Form-100", 5, 5);
 	
-	std::cout << "----------------- Form tests -----------------" << std::endl;
+	std::cout << "------------- Form test grade good -------------" << std::endl;
 	std::cout << form << std::endl;
 	try
 	{
@@ -29,17 +29,21 @@ int main(void) {
 	{
 		std::cerr << e.what() << "\n";
 	}
-	
 	std::cout << form << std::endl;
+	
+	std::cout << "-------------- Form test grade bad --------------" << std::endl;
+	Form	form1("Form-101", 5, 5);
 	try
 	{
-		b.signForm(form);
+		b.signForm(form1);
 	}
 	catch (std::exception &e)
 	{
 		std::cerr << e.what() << "\n";
 	}
-	Form	form2("Form-150", 5, 5);
+	std::cout << form1 << std::endl;
+	
+	Form	form2("Form-102", 50, 5);
 	try
 	{
 		b.signForm(form2);
@@ -48,6 +52,7 @@ int main(void) {
 	{
 		std::cerr << e.what() << "\n";
 	}
+	std::cout << form2 << std::endl;
 	
 	std::cout << "\n----------------- Destructors -----------------" << std::endl;
 }

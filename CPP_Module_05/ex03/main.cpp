@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:48:36 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/10/13 20:24:52 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/17 03:31:04 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "Intern.hpp"
 
 int main(void) {
+	srand(time(NULL));
 	std::cout << "\n-------------Shrubbery Intern Test -------------\n" << std::endl;
 	try
 	{
@@ -46,20 +47,22 @@ int main(void) {
 	try
 	{
 		Intern	bob;
-		AForm	*shrub = bob.makeForm("robotomy request", "bob");
-		std::cout << *shrub;
+		AForm	*robot = bob.makeForm("robotomy request", "bob");
+		std::cout << *robot;
 		try
 		{
 			Bureaucrat	a("boss", 4);
-			a.executeForm(*shrub);
-			a.signForm(*shrub);
-			a.executeForm(*shrub);
+			a.executeForm(*robot);
+			a.signForm(*robot);
+			a.executeForm(*robot);
+			for (int i = 0; i < 5; i++)
+				a.executeForm(*robot);
 		}
 		catch (std::exception &e)
 		{
 			std::cerr << e.what() << '\n';
 		}
-		delete shrub;
+		delete robot;
 	}
 	catch (std::exception &e)
 	{
@@ -70,20 +73,20 @@ int main(void) {
 	try
 	{
 		Intern	bob;
-		AForm	*shrub = bob.makeForm("presidential pardon", "bob");
-		std::cout << *shrub;
+		AForm	*pres = bob.makeForm("presidential pardon", "bob");
+		std::cout << *pres;
 		try
 		{
 			Bureaucrat	a("boss", 4);
-			a.executeForm(*shrub);
-			a.signForm(*shrub);
-			a.executeForm(*shrub);
+			a.executeForm(*pres);
+			a.signForm(*pres);
+			a.executeForm(*pres);
 		}
 		catch (std::exception &e)
 		{
 			std::cerr << e.what() << '\n';
 		}
-		delete shrub;
+		delete pres;
 	}
 	catch (std::exception &e)
 	{

@@ -6,14 +6,14 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 01:58:20 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/23 03:13:51 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/17 04:02:27 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <cctype>
 # include <cmath>

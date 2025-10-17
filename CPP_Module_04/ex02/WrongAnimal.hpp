@@ -13,7 +13,7 @@
 #ifndef WRONGANIMAL_HPP
 # define WRONGANIMAL_HPP
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <cctype>
 # include <cmath>

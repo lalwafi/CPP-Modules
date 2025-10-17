@@ -8,7 +8,7 @@ SRCS		= main.cpp Bureaucrat.cpp AForm.cpp \
 
 OBJ			= $(SRCS:.cpp=.o)
 
-%.o : %.c
+%.o : %.cpp
 	$(CXX) -c $(CXXFLAGS) $< -o $@
 
 all: $(NAME)

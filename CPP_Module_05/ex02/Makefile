@@ -6,7 +6,7 @@ SRCS		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequ
 		
 OBJ			= $(SRCS:.cpp=.o)
 
-%.o : %.c
+%.o : %.cpp
 	$(CXX) -c $(CXXFLAGS) $< -o $@
 
 all: $(NAME)

@@ -6,14 +6,14 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 23:52:45 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/07/04 16:36:15 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/17 04:02:27 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <cctype>
 # include <cmath>

@@ -6,14 +6,14 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 19:24:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/10/13 19:26:17 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/17 04:02:27 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 # include <iostream>
-# include <string.h>
+# include <string>
 # include <cstdlib>
 # include <cctype>
 # include <cmath>
@@ -52,13 +52,12 @@ class Form
 			public:
 				const char *what() const throw();
 		};
-
-		class UnsignedException : public std::exception
+		
+		class FormAlreadySignedException : public std::exception
 		{
 			public:
 				const char *what() const throw();
 		};
-		
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &f);
