@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/07 12:43:34 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/10/01 19:30:47 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/21 23:21:37 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	ScalarConverter::convert(const std::string &literal) {
 	
 	if (literal.length() == 1 && !isdigit(literal[0]))
 	{
-		std::cout << "------- char detected ----------" << std::endl;
 		char c = literal[0];
 		std::cout << "Char: " << c << "\n";
 		std::cout << "Int: " << static_cast<int>(c) << "\n";
@@ -63,7 +62,6 @@ void	ScalarConverter::convert(const std::string &literal) {
 	long i = std::strtol(literal.c_str(), &end, 10);
 	if (*end == '\0' && i >= INT_MIN && i <= INT_MAX)
 	{
-		std::cout << "------- int detected ----------" << std::endl;
 		if (i >= 32 && i <= 126)
 			std::cout << "Char: " << static_cast<char>(i) << "\n";
 		else if ((i >= 0 && i < 32) || i == 127)
@@ -82,7 +80,6 @@ void	ScalarConverter::convert(const std::string &literal) {
 	double j = std::strtod(literal.c_str(), &end);
 	if (*end == 'f' && *(end + 1) == '\0')
 	{
-		std::cout << "------- float detected ----------" << std::endl;
 		float f = static_cast<float>(j);
 		if (f >= 32 && f <= 126)
 			std::cout << "Char: " << static_cast<char>(f) << "\n";
@@ -103,7 +100,6 @@ void	ScalarConverter::convert(const std::string &literal) {
 	
 	double d = std::strtod(literal.c_str(), &end);
 	if (*end == '\0') {
-		std::cout << "------- double detected ----------" << std::endl;
 		if (d >= 32 && d <= 126)
 			std::cout << "Char: " << static_cast<char>(d) << "\n";
 		else if ((d >= 0 && d < 32) || d == 127)

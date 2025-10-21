@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 04:17:08 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/09/13 05:05:42 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/10/21 23:30:43 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 Base	*generate(void)
 {
-	srand(time(NULL));
 	int i = rand() % 3;
 	switch (i)
 	{
@@ -61,6 +60,7 @@ void	identify(Base& p)
 
 int	main(void)
 {
+	srand(time(NULL));
 	Base *base = generate();
 	
 	std::cout << "Identify pointer: ";
