@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 13:04:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/08 21:51:12 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/12/09 13:57:59 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <vector>
+# include <algorithm>
+# include <stdexcept>
 
 class Span
 {
@@ -29,15 +31,10 @@ class Span
 		~Span();
 		
 		void	addNumber(int i);
-		int		shortestSpan();
-		int		longestSpan();
-		// ur msising one
+		int		shortestSpan() const;
+		int		longestSpan() const;
+		void	addAlotOfNumbers(unsigned int size);
 
-		class MaxCapacityReached : std::exception
-		{
-			public:
-				const char *what() const throw();
-		}
 };
 
 #endif

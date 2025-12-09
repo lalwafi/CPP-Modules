@@ -6,13 +6,13 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 21:40:00 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/08 21:52:10 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/12/09 14:23:21 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span() {
+Span::Span() : _max(0){
 	std::cout << "Span constructor called" << std::endl;
 }
 
@@ -39,10 +39,40 @@ Span::~Span() {
 }
 
 void	Span::addNumber(int i) {
-	// if (this->_vector.size() == this->_max)
-		
+	if (this->_vector.size() == this->_max)
+		throw std::runtime_error("Max Capacity Reached :(");
+	this->_vector.push_back(i);
 }
 
-const char *Span::MaxCapacityReached::what() const throw() {
-	return ("Max Capacity reached :(");
+int	Span::shortestSpan() const {
+	if (this->_vector.size() <= 1)
+		throw std::runtime_error("Container Too Small To Find Span");
+	
+	std::vector<int> copy = this->_vector;
+	std::sort(copy.begin(), copy.end());   // sorts from lowest to highest
+	
+	int min = copy[1] - copy[0];
+	int temp;
+	for (size_t i = 2; i < copy.size(); i++)
+	{
+		temp = copy[i] - copy[i - 1];
+		if (temp < min)
+			min = temp;
+	}
+	return (min);
+}
+
+int	Span::longestSpan() const {
+	if (this->_vector.size() <= 1)
+		throw std::runtime_error("Container Too Small To Find Span");
+	
+	std::vector<int> copy = this->_vector;
+	std::sort(copy.begin(), copy.end());   // sorts from lowest to highest
+	
+	return (copy.back() - copy.front());
+}
+
+void	Span::addAlotOfNumbers(int start, int end) {
+	for (unsigned int i = this->_max; i >= 0; i--)
+		// some way to add that dumb fucking range???? i dont know
 }
