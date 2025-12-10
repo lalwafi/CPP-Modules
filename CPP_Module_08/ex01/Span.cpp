@@ -6,26 +6,21 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 21:40:00 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/09 14:23:21 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/12/10 15:44:43 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span() : _max(0){
-	std::cout << "Span constructor called" << std::endl;
-}
+Span::Span() : _max(0) {}
 
-Span::Span(unsigned int i) : _max(i) {
-	std::cout << "Span constructor called" << std::endl;
-}
+Span::Span(unsigned int i) : _max(i) {}
 
-Span::Span(Span const &copy) : _vector(copy._vector) , _max(copy._max){
-	std::cout << "Span copy constructor called" << std::endl;
+Span::Span(Span const &copy) {
+	*this = copy;
 }
 
 Span &Span::operator=(const Span &s) {
-	std::cout << "Span = operator called" << std::endl;
 	if (this != &s)
 	{
 		this->_max = s._max;
@@ -35,7 +30,6 @@ Span &Span::operator=(const Span &s) {
 }
 
 Span::~Span() {
-	std::cout << "Span destructor called" << std::endl;
 }
 
 void	Span::addNumber(int i) {
@@ -72,7 +66,9 @@ int	Span::longestSpan() const {
 	return (copy.back() - copy.front());
 }
 
-void	Span::addAlotOfNumbers(int start, int end) {
-	for (unsigned int i = this->_max; i >= 0; i--)
-		// some way to add that dumb fucking range???? i dont know
+void	Span::addAlotOfNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end) {
+	unsigned int dist = std::distance(start, end);
+	if (dist > this->_max)
+		throw std::runtime_error("Not enough space in Span for range");
+	this->_vector.insert(this->_vector.end(), start, end);
 }

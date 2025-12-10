@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 13:04:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/09 13:57:59 by lalwafi          ###   ########.fr       */
+/*   Updated: 2025/12/10 15:40:32 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <vector>
 # include <algorithm>
 # include <stdexcept>
+# include <iterator>
 
 class Span
 {
@@ -33,8 +34,7 @@ class Span
 		void	addNumber(int i);
 		int		shortestSpan() const;
 		int		longestSpan() const;
-		void	addAlotOfNumbers(unsigned int size);
-
+		void	addAlotOfNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end);
 };
 
 #endif
