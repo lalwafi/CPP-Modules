@@ -2,5 +2,7 @@ ex00:
 	- check if file has to be .txt or it can be .csv
 	- check the norm for function and variable names (file_check is ok instead of fileCheck)
 	- check if evaluators would put some shit other than data.csv
-	- dont forget to rename parse_shit
+	- dont forget to rename parseInput
 	- check overflows
+	- remove check prints and check all the prints are right
+	- value in input file is just "."

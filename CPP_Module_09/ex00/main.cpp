@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 01:00:44 by lalwafi           #+#    #+#             */
-/*   Updated: 2026/03/07 04:24:50 by lalwafi          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:05:37 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,13 @@ int main(int ac, char **av)
 		try
 		{
 			BitcoinExchange meow;
-			// meow.loadDatabase();
-			// meow.parse_shit(av[1]);
-			if (meow.isValidValue(av[1]))
-				std::cout << "true" << std::endl;
-			else
-				std::cout << "false" << std::endl;
-
+			meow.loadDatabase();
+			meow.parseInput(av[1]);
 		}
 		catch(const std::exception& e)
 		{
 			std::cerr << e.what() << '\n';
 		}
-		
 		return 0;
 	}
 	std::cout << "Error: could not open file." << std::endl;

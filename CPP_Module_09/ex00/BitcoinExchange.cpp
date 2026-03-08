@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 01:07:32 by lalwafi           #+#    #+#             */
-/*   Updated: 2026/03/07 04:27:40 by lalwafi          ###   ########.fr       */
+/*   Updated: 2026/03/08 00:05:21 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 BitcoinExchange::BitcoinExchange()
 {
-	std::cout << "BitcoinExchange constructor called" << std::endl;
+	// std::cout << "BitcoinExchange constructor called" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
 {
-	std::cout << "BitcoinExchange copy constructor called" << std::endl;
+	// std::cout << "BitcoinExchange copy constructor called" << std::endl;
 	*this = copy;
 }
 
 BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &rhs)
 {
-	std::cout << "BitcoinExchange = operator constructor called" << std::endl;
+	// std::cout << "BitcoinExchange = operator constructor called" << std::endl;
 	if (this != &rhs)
 		this->_rates = rhs._rates;
 	return (*this);
@@ -33,7 +33,7 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &rhs)
 
 BitcoinExchange::~BitcoinExchange()
 {
-	std::cout << "BitcoinExchange deconstructor called" << std::endl;
+	// std::cout << "BitcoinExchange deconstructor called" << std::endl;
 }
 
 void	BitcoinExchange::loadDatabase()
@@ -54,17 +54,15 @@ void	BitcoinExchange::loadDatabase()
 	}
 }
 
-void BitcoinExchange::parse_shit(char *file_char)
+void BitcoinExchange::parseInput(char *file_char)
 {
 	std::string	file_string = file_char;
-	std::cout << "file_string: " << file_string << std::endl;
 	
 	// check if file is .txt of ?.csv?
 	if (file_string.length() < 4)
 		throw std::runtime_error("Error: wrong input file format, should be .txt or .csv");
 		
 	std::string file_check = file_string.substr(file_string.length() - 4, 4);
-	std::cout << "file_check: " << file_check << std::endl;
 	if (file_check != ".txt" && file_check != ".csv")
 		throw std::runtime_error("Error: wrong input file format, should be txt or csv.");
 	
@@ -79,25 +77,53 @@ void BitcoinExchange::parse_shit(char *file_char)
 	std::string	line;
 	std::getline(infile, line);
 	while (std::getline(infile, line))
-		do_it(line);
+		execute(line);
 }
 
-void	BitcoinExchange::do_it(std::string line)
+void	BitcoinExchange::execute(std::string line)
 {
 	std::stringstream	ss(line);
 	std::string			date, valuestr;
+
+	size_t pos = line.find(" | ");
+	if (pos == std::string::npos)
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		return ;
+	}
 	if (!std::getline(ss, date, '|') || !std::getline(ss, valuestr))
 	{
 		std::cout << "Error: bad input => " << line << std::endl;
 		return ;
 	}
+	date = trimWhiteSpaces(date);
+	valuestr = trimWhiteSpaces(valuestr);
 	if (!isValidDate(date))
 	{
-		std::cout << "Error: bad input => " << line << std::endl;
+		std::cout << "Error: bad input date => " << line << std::endl;
 		return ;
 	}
-	
-	
+	if (!isValidValue(valuestr))
+		return ;
+	float value = atof(valuestr.c_str());
+	// now we check the date if it exists in _rates, if not find the closest match going backwards
+	// multiply that rate by the value from the input file
+	// if the iterator is at the end then take the last value (it--)
+	// if the iterator is at the beginning and its still bigger than the date then no rate available 
+	// if not beginning or end, and the iterator is still unequal to the date, then take previous value (it--)
+	std::map<std::string, float>::iterator it = this->_rates.lower_bound(date);
+	if (it == this->_rates.end())
+		it--;
+	else if (it == this->_rates.begin() && (*it).first > date)
+	{
+		std::cout << "Error: no rate available at date => " << date << std::endl;
+		return ;
+	}
+	else if ((*it).first > date)
+		it--;
+	float rate = (*it).second * value;
+	std::cout << (*it).first << " => " << value << " = " << rate << std::endl;
+	return ;
 }
 
 bool	BitcoinExchange::isValidValue(std::string value)
@@ -107,6 +133,11 @@ bool	BitcoinExchange::isValidValue(std::string value)
 	// value decimal numbers??? how many significant figures
 	// lets say significant figures is 2 max
 	// if there is a dot, check if theres two dots,
+	if (value[0] == '-')
+	{
+		std::cout << "Error: not a positive number." << std::endl;
+		return false;
+	}
 	bool dotFound = false;
 	for (size_t i = 0; i < value.length(); i++)
 	{
@@ -116,13 +147,23 @@ bool	BitcoinExchange::isValidValue(std::string value)
 		{
 			dotFound = true;
 			if (i > 4)
+			{
+				std::cout << "Error: too large a number." << std::endl;
 				return false;
+			}
 		}
 		else
+		{
+			std::cout << "Error: bad input => " << value << std::endl;
 			return false;
+		}
 	}
+	//if u want 0 > value < 1000 instead of 0 >= value <= 1000, change this
 	if (atof(value.c_str()) > 1000)
+	{
+		std::cout << "Error: too large a number." << std::endl;
 		return false;
+	}
 	return true;
 }
 
@@ -139,10 +180,9 @@ bool	BitcoinExchange::isValidDate(std::string date)
 	{
 		if ((i == 4 || i == 7) && date[i] != '-')
 			return false;
-		if (!isdigit(date[i]))
+		if ((i != 4 && i != 7) && !isdigit(date[i]))
 			return false;
 	}
-	
 	int year = atoi(date.substr(0, 4).c_str());
 	int month = atoi(date.substr(5, 2).c_str());
 	int day = atoi(date.substr(8, 2).c_str());
@@ -170,4 +210,17 @@ bool	BitcoinExchange::isValidDate(std::string date)
 			return (false);
 	}
 	return true;
+}
+
+std::string	BitcoinExchange::trimWhiteSpaces(std::string str)
+{
+	size_t start = 0;
+    while (start < str.length() && std::isspace(str[start]))
+        start++;
+
+    size_t end = str.length();
+    while (end > start && std::isspace(str[end - 1]))
+        end--;
+
+    return (str.substr(start, end - start));
 }
