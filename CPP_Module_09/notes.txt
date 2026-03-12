@@ -6,3 +6,7 @@ ex00:
 	- check overflows
 	- remove check prints and check all the prints are right
 	- value in input file is just "."
+ex01:
+	- change the error prints to just "Error"
+	- am i supposed to handle negative numbers?
+	- check edge cases, ask people to break it and if its still valid
