@@ -6,14 +6,14 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 17:02:38 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/11 17:17:14 by lalwafi          ###   ########.fr       */
+/*   Updated: 2026/03/14 22:26:36 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-# include <stack>
+# include <stack> // A container adapter that restricts access to a container and provides LIFO behavior.
 # include <deque>
 # include <iostream>
 

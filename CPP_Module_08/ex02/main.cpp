@@ -6,22 +6,27 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 15:12:41 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/11 17:14:38 by lalwafi          ###   ########.fr       */
+/*   Updated: 2026/03/14 22:54:42 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
 int main() {
-	MutantStack<int> mstack;
+	MutantStack<int> mstack1;
+	MutantStack<int> mstack2(mstack1);
+	MutantStack<int> mstack = mstack1;
+
 	
-	mstack.push(1); // pushes to top of stack
+	std::cout << std::boolalpha << "empty: " << mstack.empty() << std::endl;
+	mstack.push(1);
 	mstack.push(2);
 	mstack.push(3);
-	std::cout << "Mstack top : " << mstack.top() << std::endl; // shows top of stack
+	std::cout << "Mstack top : " << mstack.top() << std::endl;
 	mstack.pop();
 	std::cout << "Mstack top after pop : " << mstack.top() << std::endl;
-	std::cout << "Mstack size : " << mstack.size() << std::endl; // shows size of stack
+	std::cout << "Mstack size : " << mstack.size() << std::endl;
+	std::cout << "empty: " << mstack.empty() << std::endl;
 	
 	mstack.push(10);
 	mstack.push(20);
@@ -40,7 +45,7 @@ int main() {
 }
 
 
-//////////////////// PDF main
+//                               PDF main
 // int main()
 // {
 // 	MutantStack<int> mstack;

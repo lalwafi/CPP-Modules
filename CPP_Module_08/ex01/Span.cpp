@@ -6,15 +6,15 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 21:40:00 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/10 15:44:43 by lalwafi          ###   ########.fr       */
+/*   Updated: 2026/03/14 21:58:58 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span() : _max(0) {}
+Span::Span() : _N(0) {}
 
-Span::Span(unsigned int i) : _max(i) {}
+Span::Span(unsigned int i) : _N(i) {}
 
 Span::Span(Span const &copy) {
 	*this = copy;
@@ -23,7 +23,7 @@ Span::Span(Span const &copy) {
 Span &Span::operator=(const Span &s) {
 	if (this != &s)
 	{
-		this->_max = s._max;
+		this->_N = s._N;
 		this->_vector = s._vector;
 	}
 	return (*this);
@@ -33,7 +33,7 @@ Span::~Span() {
 }
 
 void	Span::addNumber(int i) {
-	if (this->_vector.size() == this->_max)
+	if (this->_vector.size() == this->_N)
 		throw std::runtime_error("Max Capacity Reached :(");
 	this->_vector.push_back(i);
 }
@@ -68,7 +68,7 @@ int	Span::longestSpan() const {
 
 void	Span::addAlotOfNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end) {
 	unsigned int dist = std::distance(start, end);
-	if (dist > this->_max)
-		throw std::runtime_error("Not enough space in Span for range");
+	if ((dist + this->_vector.size()) > this->_N)
+		throw std::runtime_error("Not enough space in Span to add numbers");
 	this->_vector.insert(this->_vector.end(), start, end);
 }

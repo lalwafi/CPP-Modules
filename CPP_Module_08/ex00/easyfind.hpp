@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 23:41:21 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/07 23:41:22 by lalwafi          ###   ########.fr       */
+/*   Updated: 2026/03/14 21:35:58 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <iostream>
 # include <algorithm> // dis for find
 # include <stdexcept> // for da std::runtime_error
+# include <vector>
+# include <list>
+# include <deque>
+# include <set>
 
 template <typename T>
 int easyfind(T &container, int value)

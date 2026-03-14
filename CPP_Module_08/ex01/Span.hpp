@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 13:04:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2025/12/10 15:40:32 by lalwafi          ###   ########.fr       */
+/*   Updated: 2026/03/14 20:07:02 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 class Span
 {
 	private:
-		unsigned int		_max;
+		unsigned int		_N;
 		std::vector<int>	_vector;
 	public:
 		Span();
