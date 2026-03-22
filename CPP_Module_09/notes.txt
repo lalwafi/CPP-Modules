@@ -10,3 +10,5 @@ ex01:
 	- change the error prints to just "Error"
 	- am i supposed to handle negative numbers?
 	- check edge cases, ask people to break it and if its still valid
+ex02
+	- check if u need to parse input (eg: 1 2 e 4 -1 6)
